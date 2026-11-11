@@ -4,11 +4,10 @@ const address = {
   locality: "Roma",
   addressCountry: "IT",
 };
-const restaurantName = "Lo Sgobbone Da Pippo";
 
 export const content = {
   restaurant: {
-    name: restaurantName,
+    name: "Lo Sgobbone Da Pippo",
     cuisine: "Cucina romana",
     ...address,
     address: `${address.streetAddress}, ${address.postalCode} ${address.locality}`,
@@ -48,7 +47,7 @@ export const content = {
       "[TESTO DI PRESENTAZIONE DEL LOCALE DA INSERIRE]",
       "[RACCONTO DELLA TRATTORIA DA INSERIRE]",
     ],
-    imageAlt: `Immagine segnaposto per la trattoria ${restaurantName}`,
+    imageAlt: "Immagine segnaposto per la trattoria Lo Sbobbone Da Pippo",
     imageNote: "[FOTO DELLA TRATTORIA DA INSERIRE]",
   },
   menu: {
@@ -93,7 +92,7 @@ export const content = {
       },
     ],
     directions: "Indicazioni",
-    mapTitle: `Mappa per ${restaurantName}, Via Podesti 8, Roma`,
+    mapTitle: "Mappa per Lo Sbobbone Da Pippo, Via Podesti 8, Roma",
     mapNote: "La mappa indica l’indirizzo fornito.",
   },
   footer: {
@@ -103,9 +102,9 @@ export const content = {
     backToTop: "Torna su",
   },
   metadata: {
-    title: `${restaurantName} | Cucina romana a Roma`,
+    title: "Lo Sbobbone Da Pippo | Cucina romana a Roma",
     description:
-      `${restaurantName}, ristorante di cucina tradizionale romana in Via Podesti 8, 00196 Roma. Contattaci al 06 323 2994.`,
+      "Lo Sgobbone Da Pippo, ristorante di cucina tradizionale romana in Via Podesti 8, 00196 Roma. Contattaci al 06 323 2994.",
   },
   sections: {
     skipToContent: "Salta al contenuto",

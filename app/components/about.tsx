@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { content } from "@/src/data/content";
+import { photos } from "@/src/data/gallery";
 import { Reveal } from "./reveal";
 
 export function About() {
@@ -27,12 +28,12 @@ export function About() {
         <Reveal>
           <div className="about-photo">
             <Image
-              src="/images/about-placeholder.svg"
-              alt={about.imageAlt}
+              src={photos.about.src}
+              alt={photos.about.alt}
               fill
               sizes="(max-width: 899px) 100vw, 42vw"
             />
-            <span className="image-note">{about.imageNote}</span>
+            <span className="image-note">{photos.about.caption}</span>
           </div>
         </Reveal>
       </div>

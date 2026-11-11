@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { content } from "@/src/data/content";
-import { gallery } from "@/src/data/gallery";
+import { photos } from "@/src/data/gallery";
 import { Reveal } from "./reveal";
 
 export function GallerySection() {
+  const gallery = photos.gallery;
+  const galleryLength = gallery.length;
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -19,13 +21,13 @@ export function GallerySection() {
 
   const showPrevious = useCallback(() => {
     setActiveIndex((current) =>
-      current === null ? null : (current - 1 + gallery.length) % gallery.length,
+      current === null ? null : (current - 1 + galleryLength) % galleryLength,
     );
-  }, []);
+  }, [galleryLength]);
 
   const showNext = useCallback(() => {
-    setActiveIndex((current) => (current === null ? null : (current + 1) % gallery.length));
-  }, []);
+    setActiveIndex((current) => (current === null ? null : (current + 1) % galleryLength));
+  }, [galleryLength]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -89,7 +91,7 @@ export function GallerySection() {
               <button
                 className={`gallery-card ${image.shape}`}
                 type="button"
-                data-note={content.gallery.imagePlaceholder}
+                data-note={image.caption}
                 aria-label={`${content.gallery.openImage}: ${image.alt}`}
                 onClick={(event) => {
                   previousFocusRef.current = event.currentTarget;

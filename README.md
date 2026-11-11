@@ -20,8 +20,8 @@ npm run build
 
 - `src/data/content.ts`: nome, indirizzo, telefono, testi, CTA, orari e metadati. Sostituisci i segnaposto tra parentesi quadre con le informazioni confermate.
 - `src/data/menu.ts`: categorie e piatti del menu. Non sono indicati prezzi finché non vengono forniti.
-- `src/data/gallery.ts`: percorsi e testi alternativi delle immagini della galleria.
-- `public/images/`: immagini segnaposto SVG. Sostituiscile con le foto del locale, mantenendo i nomi dei file o aggiornando i percorsi in `src/data/gallery.ts` e nei componenti della pagina.
+- `src/data/gallery.ts`: percorsi, didascalie e testi alternativi delle immagini di apertura, presentazione e galleria.
+- `public/images/`: immagini del sito. Sostituisci i file e aggiorna i relativi percorsi in `src/data/gallery.ts`.
 
 Anche i campi SEO e i dati strutturati del ristorante usano le informazioni in `src/data/content.ts`.
 

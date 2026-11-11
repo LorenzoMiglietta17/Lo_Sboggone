@@ -365,34 +365,22 @@ img {
   position: relative;
   display: flex;
   min-height: 100svh;
-  align-items: flex-end;
-  padding: 8rem 0 5.5rem;
+  align-items: center;
+  padding: 7rem 0 4rem;
   background: var(--olive);
   color: var(--paper-light);
 }
 
-.hero-image,
-.hero-shade {
-  position: absolute;
-  inset: 0;
-}
-
-.hero-image img {
-  object-fit: cover;
-  animation: hero-drift 24s ease-in-out infinite alternate;
-}
-
-.hero-shade {
-  background:
-    linear-gradient(90deg, rgba(28, 27, 21, 0.74), rgba(28, 27, 21, 0.16)),
-    linear-gradient(0deg, rgba(28, 27, 21, 0.45), transparent 55%);
-}
-
 .hero-content {
-  position: relative;
-  z-index: 1;
+  display: grid;
   width: min(100% - 2.5rem, 76rem);
+  align-items: center;
   margin-inline: auto;
+  gap: 2rem;
+}
+
+.hero-copy {
+  min-width: 0;
 }
 
 .hero .eyebrow {
@@ -400,12 +388,12 @@ img {
 }
 
 .hero h1 {
-  max-width: 13ch;
+  max-width: 11ch;
   margin: 1.25rem 0 0;
-  font-size: clamp(3.75rem, 12vw, 8rem);
+  font-size: clamp(3.25rem, 6.8vw, 5.25rem);
   font-weight: 500;
-  letter-spacing: -0.07em;
-  line-height: 0.82;
+  letter-spacing: -0.065em;
+  line-height: 0.92;
 }
 
 .hero-subtitle {
@@ -426,11 +414,30 @@ img {
 
 .hero-photo-note {
   position: absolute;
-  right: 0;
-  bottom: -3rem;
-  color: rgba(251, 247, 239, 0.78);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
+  inset: auto 0 0;
+  padding: 2.5rem 1rem 0.9rem;
+  background: linear-gradient(transparent, rgba(42, 31, 26, 0.72));
+  color: var(--paper-light);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-photo {
+  position: relative;
+  width: 100%;
+  max-width: 25rem;
+  aspect-ratio: 4 / 3;
+  justify-self: center;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(251, 247, 239, 0.28);
+  border-radius: 0.65rem;
+  background: rgba(251, 247, 239, 0.08);
+  box-shadow: 0 1.5rem 4rem rgba(20, 25, 16, 0.22);
+}
+
+.hero-photo img {
+  object-fit: cover;
 }
 
 .about-grid {
@@ -832,16 +839,6 @@ img {
   text-underline-offset: 0.2em;
 }
 
-@keyframes hero-drift {
-  from {
-    transform: scale(1.015);
-  }
-
-  to {
-    transform: scale(1.075);
-  }
-}
-
 @media (min-width: 640px) {
   .section-wrap {
     width: min(100% - 4rem, 76rem);
@@ -899,13 +896,15 @@ img {
     display: none;
   }
 
-  .hero {
-    align-items: center;
-    padding-block: 8rem;
+  .hero-content {
+    grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding-top: 3rem;
   }
 
-  .hero-content {
-    padding-top: 3rem;
+  .hero-photo {
+    max-width: 36rem;
+    justify-self: end;
   }
 
   .about-grid {
