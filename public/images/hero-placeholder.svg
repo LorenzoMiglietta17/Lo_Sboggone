@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200" fill="none">
+  <defs>
+    <linearGradient id="wall" x1="180" y1="80" x2="1500" y2="1120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#93816A"/>
+      <stop offset="1" stop-color="#403A2D"/>
+    </linearGradient>
+    <linearGradient id="table" x1="900" y1="720" x2="900" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#76523B"/>
+      <stop offset="1" stop-color="#3D3026"/>
+    </linearGradient>
+    <pattern id="grain" width="90" height="90" patternUnits="userSpaceOnUse">
+      <circle cx="7" cy="12" r="1" fill="#F7F0E3" fill-opacity=".12"/>
+      <circle cx="55" cy="39" r="1.4" fill="#2A1F1A" fill-opacity=".1"/>
+      <circle cx="27" cy="75" r="1" fill="#F7F0E3" fill-opacity=".1"/>
+    </pattern>
+  </defs>
+  <path fill="url(#wall)" d="M0 0h1800v1200H0z"/>
+  <path fill="#3B4A32" fill-opacity=".7" d="M0 0h480v700H0z"/>
+  <path stroke="#B8893B" stroke-opacity=".6" stroke-width="8" d="M510 0v620M1290 0v620"/>
+  <path fill="#D9C6A7" fill-opacity=".76" d="M565 105h650v485H565z"/>
+  <path fill="#81725D" d="M620 160h540v345H620z"/>
+  <path fill="#B8893B" fill-opacity=".6" d="M674 217h432v234H674z"/>
+  <path fill="#A63D2F" fill-opacity=".85" d="M742 330c80-100 155-100 230 0-75 100-150 100-230 0Z"/>
+  <path fill="#3B4A32" d="M0 690c350-84 730-30 1060 12 280 35 510 9 740-37v535H0z"/>
+  <path fill="url(#table)" d="M0 788c500-90 1170-47 1800-126v538H0z"/>
+  <ellipse cx="1044" cy="870" rx="257" ry="94" fill="#E9DEC9"/>
+  <ellipse cx="1044" cy="856" rx="218" ry="65" fill="#F7F0E3"/>
+  <ellipse cx="1044" cy="856" rx="154" ry="43" fill="#A63D2F"/>
+  <path fill="#D2AC6D" d="M971 851c33-37 89-37 130 0-41 37-97 37-130 0Z"/>
+  <path fill="#3B4A32" d="M1055 804c19-37 51-49 72-36-14 30-42 45-72 36Z"/>
+  <path stroke="#D8C6A8" stroke-width="20" d="M1377 762v266"/>
+  <path stroke="#D8C6A8" stroke-width="20" d="M1442 756v272"/>
+  <path fill="#7D3428" d="M1278 701c-15 80 4 175 37 210 33-35 52-130 37-210h-74Z"/>
+  <path fill="#B8893B" d="M1300 682h31v38h-31z"/>
+  <path fill="url(#grain)" d="M0 0h1800v1200H0z"/>
+</svg>

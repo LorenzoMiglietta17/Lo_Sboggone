@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lo Sgobbone Da Pippo
 
-## Getting Started
+Sito vetrina one-page per la trattoria, realizzato con Next.js App Router, TypeScript e Tailwind CSS.
 
-First, run the development server:
+## Avvio in locale
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Apri [http://localhost:3000](http://localhost:3000). Prima di pubblicare, verifica il progetto con:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Dove aggiornare i contenuti
 
-## Learn More
+- `src/data/content.ts`: nome, indirizzo, telefono, testi, CTA, orari e metadati. Sostituisci i segnaposto tra parentesi quadre con le informazioni confermate.
+- `src/data/menu.ts`: categorie e piatti del menu. Non sono indicati prezzi finché non vengono forniti.
+- `src/data/gallery.ts`: percorsi e testi alternativi delle immagini della galleria.
+- `public/images/`: immagini segnaposto SVG. Sostituiscile con le foto del locale, mantenendo i nomi dei file o aggiornando i percorsi in `src/data/gallery.ts` e nei componenti della pagina.
 
-To learn more about Next.js, take a look at the following resources:
+Anche i campi SEO e i dati strutturati del ristorante usano le informazioni in `src/data/content.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pubblicazione
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Il progetto usa le impostazioni standard di Next.js: non richiede configurazioni speciali per Vercel o Netlify.
 
-## Deploy on Vercel
+- **Vercel:** importa il repository dalla dashboard Vercel e lascia le impostazioni Next.js rilevate automaticamente.
+- **Netlify:** importa il repository dalla dashboard Netlify e lascia attiva l'integrazione Next.js per il framework.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+In entrambi i casi il comando di build è `npm run build`. Non impostare la directory `public` come output di pubblicazione: l'applicazione usa le funzionalità Next.js per le immagini e il rendering delle pagine.
