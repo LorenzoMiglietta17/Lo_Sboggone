@@ -24,9 +24,30 @@ export function Contact() {
                   <a href={`tel:${restaurant.phoneLink}`}>{restaurant.phone}</a>
                 </dd>
               </div>
-              <div className="contact-detail">
+              <div className="contact-detail contact-detail--hours">
                 <dt>{content.contact.hoursLabel}</dt>
-                <dd>{content.contact.hoursPlaceholder}</dd>
+                <dd>
+                  <ul className="hours-list">
+                    {content.contact.hours.map((schedule) => (
+                      <li key={schedule.days}>
+                        <span className="hours-day">{schedule.days}</span>
+                        <span className="hours-periods">
+                          {schedule.periods.map((period) => (
+                            <span
+                              className="hours-period"
+                              key={`${schedule.days}-${period.label}`}
+                            >
+                              {period.label && (
+                                <span className="hours-period-label">{period.label}</span>
+                              )}
+                              <span>{period.time}</span>
+                            </span>
+                          ))}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
               </div>
             </dl>
             <div className="contact-actions">

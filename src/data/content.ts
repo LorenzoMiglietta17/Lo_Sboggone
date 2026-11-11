@@ -75,7 +75,23 @@ export const content = {
     addressLabel: "Indirizzo",
     phoneLabel: "Telefono",
     hoursLabel: "Orari",
-    hoursPlaceholder: "[ORARI DA INSERIRE]",
+    hours: [
+      {
+        days: "Lunedì",
+        periods: [{ label: "Cena", time: "20:00–23:00" }],
+      },
+      {
+        days: "Martedì–sabato",
+        periods: [
+          { label: "Pranzo", time: "13:00–15:00" },
+          { label: "Cena", time: "20:00–23:00" },
+        ],
+      },
+      {
+        days: "Domenica",
+        periods: [{ label: "", time: "Chiuso" }],
+      },
+    ],
     directions: "Indicazioni",
     mapTitle: `Mappa per ${restaurantName}, Via Podesti 8, Roma`,
     mapNote: "La mappa indica l’indirizzo fornito.",
