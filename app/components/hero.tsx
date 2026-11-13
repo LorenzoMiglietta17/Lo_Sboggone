@@ -1,31 +1,32 @@
 import Image from "next/image";
+import Link from "next/link";
 import { content } from "@/src/data/content";
 import { photos } from "@/src/data/gallery";
+import { HeroMotion } from "./hero-motion";
+import Magnet from "./ui/magnet";
 
 export function Hero() {
   const { restaurant, hero } = content;
 
   return (
     <section className="hero" id="inizio" aria-labelledby="hero-title">
-      <div className="hero-content">
+      <HeroMotion className="hero-content">
         <div className="hero-copy">
-          <span className="eyebrow">{hero.eyebrow}</span>
-          <h1 className="font-display" id="hero-title">
+          <span className="eyebrow hero-eyebrow">{hero.eyebrow}</span>
+          <h1 className="font-display hero-title" id="hero-title">
             {restaurant.name}
           </h1>
-          <p className="hero-subtitle">{hero.subtitle}</p>
+          <p className="hero-subtitle hero-description">{hero.subtitle}</p>
           <div className="hero-actions">
-            <a className="button button--primary" href={`tel:${restaurant.phoneLink}`}>
-              {hero.callToAction}
-              <span aria-hidden="true">↗</span>
-            </a>
-            <a className="button button--light" href="#menu">
-              {hero.menuCallToAction}
-              <span aria-hidden="true">↓</span>
-            </a>
+            <Magnet padding={56} magnetStrength={5} maxOffset={6} scale={1.015}>
+              <Link className="button button--light hero-menu-link" href="/menu">
+                {hero.menuCallToAction}
+                <span aria-hidden="true">↗</span>
+              </Link>
+            </Magnet>
           </div>
         </div>
-        <figure className="hero-photo">
+        <figure className="hero-photo hero-image">
           <Image
             src={photos.hero.src}
             alt={photos.hero.alt}
@@ -36,7 +37,7 @@ export function Hero() {
           />
           <figcaption className="hero-photo-note">{photos.hero.caption}</figcaption>
         </figure>
-      </div>
+      </HeroMotion>
     </section>
   );
 }

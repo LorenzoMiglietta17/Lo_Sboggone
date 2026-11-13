@@ -2,7 +2,7 @@ import { About } from "./components/about";
 import { Contact } from "./components/contact";
 import { GallerySection } from "./components/gallery-section";
 import { Hero } from "./components/hero";
-import { MenuSection } from "./components/menu-section";
+import { Reservation } from "./components/reservation";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
 import { content } from "@/src/data/content";
@@ -25,15 +25,15 @@ export default function Home() {
 
   return (
     <div className="page-shell">
-      <SiteHeader />
+      <SiteHeader isHome />
       <main id="contenuto">
         <Hero />
         <About />
-        <MenuSection />
+        <Reservation />
         <GallerySection />
         <Contact />
       </main>
-      <SiteFooter />
+      <SiteFooter isHome />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

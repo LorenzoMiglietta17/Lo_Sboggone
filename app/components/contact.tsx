@@ -1,5 +1,6 @@
 import { content } from "@/src/data/content";
 import { Reveal } from "./reveal";
+import Magnet from "./ui/magnet";
 
 export function Contact() {
   const { restaurant } = content;
@@ -50,16 +51,22 @@ export function Contact() {
                 </dd>
               </div>
             </dl>
+            <section className="contact-reviews" aria-labelledby="reviews-title">
+              <h3 id="reviews-title">{content.contact.reviewsTitle}</h3>
+              <p>{content.contact.reviewsPlaceholder}</p>
+            </section>
             <div className="contact-actions">
-              <a
-                className="button button--primary"
-                href={restaurant.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {content.contact.directions}
-                <span aria-hidden="true">↗</span>
-              </a>
+              <Magnet padding={56} magnetStrength={5} maxOffset={6} scale={1.015}>
+                <a
+                  className="button button--primary"
+                  href={restaurant.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {content.contact.directions}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </Magnet>
             </div>
           </div>
         </Reveal>

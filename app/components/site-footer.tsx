@@ -1,16 +1,17 @@
+import Link from "next/link";
 import { content } from "@/src/data/content";
 
-export function SiteFooter() {
+export function SiteFooter({ isHome = false }: { isHome?: boolean }) {
   const { restaurant } = content;
 
   return (
     <footer className="site-footer">
       <div className="section-wrap footer-inner">
         <div>
-          <a className="brand" href="#inizio">
+          <Link className="brand" href={isHome ? "#inizio" : "/#inizio"}>
             <span className="brand-name">{restaurant.name}</span>
             <span className="brand-caption">{restaurant.cuisine}</span>
-          </a>
+          </Link>
           <p className="footer-contact">
             {restaurant.address}
             <br />

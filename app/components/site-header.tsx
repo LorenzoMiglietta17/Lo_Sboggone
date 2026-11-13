@@ -1,11 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Link from "next/link";
 import { content } from "@/src/data/content";
+import { gsap, ScrollTrigger, useGSAP } from "./gsap-setup";
 
-export function SiteHeader() {
+export function SiteHeader({ isHome = false }: { isHome?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const { restaurant, navigation, sections } = content;
+
+  useGSAP(
+    () => {
+      const header = headerRef.current;
+      if (!header) return;
+
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: "top -24",
+        onEnter: () => header.setAttribute("data-compact", "true"),
+        onLeaveBack: () => header.removeAttribute("data-compact"),
+      });
+    },
+    { scope: headerRef },
+  );
+
+  useGSAP(
+    () => {
+      if (!menuOpen) return;
+
+      const media = gsap.matchMedia();
+      media.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          ".mobile-nav-inner",
+          { autoAlpha: 0, y: -8 },
+          { autoAlpha: 1, y: 0, duration: 0.24, ease: "power2.out" },
+        );
+        gsap.fromTo(
+          ".mobile-nav-inner a",
+          { autoAlpha: 0, y: -5 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.2,
+            stagger: 0.045,
+            ease: "power2.out",
+          },
+        );
+      });
+
+      return () => media.revert();
+    },
+    { scope: headerRef, dependencies: [menuOpen], revertOnUpdate: true },
+  );
 
   function closeMenu() {
     setMenuOpen(false);
@@ -16,27 +63,31 @@ export function SiteHeader() {
       <a className="skip-link" href="#contenuto">
         {sections.skipToContent}
       </a>
-      <header className="site-header">
+      <header className="site-header" ref={headerRef}>
         <div className="header-inner">
-          <a
+          <Link
             className="brand"
-            href="#inizio"
+            href={isHome ? "#inizio" : "/#inizio"}
             aria-label={`${restaurant.name}. ${content.header.brandLabel}`}
             onClick={closeMenu}
           >
             <span className="brand-name">{restaurant.name}</span>
             <span className="brand-caption">{restaurant.cuisine}</span>
-          </a>
+          </Link>
           <nav className="header-nav" aria-label={content.header.primaryNavigation}>
             {navigation.map((item) => (
-              <a href={item.href} key={item.href}>
-                {item.label}
-              </a>
+              item.href.startsWith("#") && isHome ? (
+                <a href={item.href} key={item.href}>{item.label}</a>
+              ) : (
+                <Link
+                  href={item.href.startsWith("#") ? `/${item.href}` : item.href}
+                  key={item.href}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </nav>
-          <a className="button button--primary header-call" href={`tel:${restaurant.phoneLink}`}>
-            {content.header.call}
-          </a>
           <button
             className="menu-toggle"
             type="button"
@@ -57,13 +108,21 @@ export function SiteHeader() {
         >
           <div className="mobile-nav-inner">
             {navigation.map((item) => (
-              <a href={item.href} key={item.href} onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}>
-                {item.label}
-              </a>
+              item.href.startsWith("#") && isHome ? (
+                <a href={item.href} key={item.href} onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}>
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  href={item.href.startsWith("#") ? `/${item.href}` : item.href}
+                  key={item.href}
+                  onClick={closeMenu}
+                  tabIndex={menuOpen ? 0 : -1}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
-            <a href={`tel:${restaurant.phoneLink}`} onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}>
-              {content.header.callWithNumber} {restaurant.phone}
-            </a>
           </div>
         </nav>
       </header>

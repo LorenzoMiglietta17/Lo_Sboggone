@@ -17,13 +17,13 @@ export const photos = {
       shape: "gallery-card--landscape",
     },
     {
-      src: "/images/caption(6).jpg",
+      src: "/images/tagliata-di-carne.jpg",
       alt: "Tagliata di carne servita su un tagliere",
       caption: "Tagliata di carne",
       shape: "gallery-card--portrait",
     },
     {
-      src: "/images/caption(8).jpg",
+      src: "/images/pasta-al-formaggio.jpg",
       alt: "Piatto di pasta con formaggio grattugiato",
       caption: "Pasta con formaggio",
       shape: "gallery-card--portrait",

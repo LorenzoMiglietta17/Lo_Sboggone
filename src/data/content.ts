@@ -20,13 +20,11 @@ export const content = {
   },
   navigation: [
     { label: "La trattoria", href: "#trattoria" },
-    { label: "Il menu", href: "#menu" },
+    { label: "Il menu", href: "/menu" },
     { label: "Galleria", href: "#galleria" },
     { label: "Dove siamo", href: "#contatti" },
   ],
   header: {
-    call: "Chiama",
-    callWithNumber: "Chiama",
     openMenu: "Apri il menu",
     closeMenu: "Chiudi il menu",
     primaryNavigation: "Navigazione principale",
@@ -47,15 +45,19 @@ export const content = {
       "[TESTO DI PRESENTAZIONE DEL LOCALE DA INSERIRE]",
       "[RACCONTO DELLA TRATTORIA DA INSERIRE]",
     ],
-    imageAlt: "Immagine segnaposto per la trattoria Lo Sbobbone Da Pippo",
+    imageAlt: "Immagine segnaposto per la trattoria Lo Sgobbone Da Pippo",
     imageNote: "[FOTO DELLA TRATTORIA DA INSERIRE]",
   },
   menu: {
     eyebrow: "Dalla cucina",
     title: "Il menu",
-    description:
-      "I piatti qui sotto sono segnaposto: il menu reale va inserito prima della pubblicazione.",
-    note: "[MENU DA CONFERMARE E INSERIRE]",
+    description: "Qualche esempio di cucina romana, in attesa del menu della trattoria.",
+    note: "ESEMPI INDICATIVI · PIATTI, FOTO E PREZZI NON SONO LA CARTA UFFICIALE E VANNO CONFERMATI",
+  },
+  reservation: {
+    eyebrow: "Un posto a tavola",
+    title: "Prenota il tuo tavolo",
+    description: "Chiamaci per informazioni e prenotazioni.",
   },
   gallery: {
     eyebrow: "Uno sguardo in trattoria",
@@ -92,8 +94,10 @@ export const content = {
       },
     ],
     directions: "Indicazioni",
-    mapTitle: "Mappa per Lo Sbobbone Da Pippo, Via Podesti 8, Roma",
+    mapTitle: "Mappa per Lo Sgobbone Da Pippo, Via Podesti 8, Roma",
     mapNote: "La mappa indica l’indirizzo fornito.",
+    reviewsTitle: "Le vostre recensioni",
+    reviewsPlaceholder: "[RECENSIONI DA INSERIRE]",
   },
   footer: {
     creditPrefix: "Sito realizzato da",
@@ -102,7 +106,7 @@ export const content = {
     backToTop: "Torna su",
   },
   metadata: {
-    title: "Lo Sbobbone Da Pippo | Cucina romana a Roma",
+    title: "Lo Sgobbone Da Pippo | Cucina romana a Roma",
     description:
       "Lo Sgobbone Da Pippo, ristorante di cucina tradizionale romana in Via Podesti 8, 00196 Roma. Contattaci al 06 323 2994.",
   },

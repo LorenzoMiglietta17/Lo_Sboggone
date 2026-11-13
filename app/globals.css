@@ -28,7 +28,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
   background: var(--cream);
 }
@@ -203,19 +202,6 @@ img {
   color: var(--ink);
 }
 
-.reveal {
-  transition:
-    opacity 650ms ease,
-    transform 650ms ease;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .reveal:not(.is-visible) {
-    transform: translateY(1.25rem);
-    opacity: 0;
-  }
-}
-
 .site-header {
   position: fixed;
   z-index: 20;
@@ -223,6 +209,14 @@ img {
   border-bottom: 1px solid rgba(42, 31, 26, 0.1);
   background: rgba(247, 240, 227, 0.95);
   backdrop-filter: blur(12px);
+  transition:
+    background 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.site-header[data-compact="true"] {
+  background: linear-gradient(180deg, rgba(247, 240, 227, 0.98), rgba(247, 240, 227, 0.92));
+  box-shadow: 0 0.5rem 1.5rem rgba(42, 31, 26, 0.08);
 }
 
 .header-inner {
@@ -233,6 +227,11 @@ img {
   justify-content: space-between;
   margin-inline: auto;
   gap: 1rem;
+  transition: min-height 240ms ease;
+}
+
+.site-header[data-compact="true"] .header-inner {
+  min-height: 3.8rem;
 }
 
 .brand {
@@ -275,12 +274,6 @@ img {
 .header-nav a:hover,
 .mobile-nav a:hover {
   color: var(--terracotta);
-}
-
-.header-call {
-  display: none;
-  min-height: 2.65rem;
-  padding: 0.65rem 1.1rem;
 }
 
 .menu-toggle {
@@ -412,6 +405,13 @@ img {
   margin-top: 2rem;
 }
 
+.hero-menu-link {
+  min-height: 4rem;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+}
+
 .hero-photo-note {
   position: absolute;
   inset: auto 0 0;
@@ -485,8 +485,36 @@ img {
 }
 
 .menu-section {
+  min-height: 100svh;
+  padding-top: clamp(7rem, 11vw, 10rem);
   background: var(--olive);
   color: var(--paper-light);
+}
+
+.reservation-section {
+  background: var(--olive);
+  color: var(--paper-light);
+}
+
+.reservation-content {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.reservation-section .eyebrow {
+  color: #e2c47f;
+}
+
+.reservation-section .section-copy {
+  margin: 1.5rem auto 2rem;
+  color: rgba(251, 247, 239, 0.88);
+}
+
+.reservation-phone {
+  margin: 1rem 0 0;
+  color: rgba(251, 247, 239, 0.88);
+  font-size: 0.9rem;
 }
 
 .menu-heading {
@@ -516,7 +544,21 @@ img {
   background: rgba(251, 247, 239, 0.035);
 }
 
-.menu-category h3 {
+.menu-category-image {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 1.25rem;
+  border-radius: 0.35rem;
+  background: rgba(251, 247, 239, 0.08);
+}
+
+.menu-category-image img {
+  object-fit: cover;
+}
+
+.menu-category h2 {
   margin: 0 0 1.2rem;
   color: #e2c47f;
   font-family: var(--font-display), Georgia, serif;
@@ -530,10 +572,29 @@ img {
   padding-top: 1.1rem;
 }
 
-.dish h4 {
+.dish-content {
+  min-width: 0;
+}
+
+.dish-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.55rem;
+}
+
+.dish h3 {
   margin: 0;
   font-size: 0.82rem;
   font-weight: 700;
+}
+
+.dish-price {
+  flex: 0 0 auto;
+  color: #f0d99e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .dish p {
@@ -781,6 +842,26 @@ img {
   margin-top: 2rem;
 }
 
+.contact-reviews {
+  margin-top: 2rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+}
+
+.contact-reviews h3 {
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.contact-reviews p {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
 .map-frame {
   min-height: 23rem;
   overflow: hidden;
@@ -885,10 +966,6 @@ img {
 @media (min-width: 900px) {
   .header-nav {
     display: flex;
-  }
-
-  .header-call {
-    display: inline-flex;
   }
 
   .menu-toggle,

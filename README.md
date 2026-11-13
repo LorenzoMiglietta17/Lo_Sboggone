@@ -1,6 +1,8 @@
 # Lo Sgobbone Da Pippo
 
-Sito vetrina one-page per la trattoria, realizzato con Next.js App Router, TypeScript e Tailwind CSS.
+Sito vetrina per la trattoria con home e pagina menu separata, realizzato con Next.js 16 App Router, React 19, TypeScript e Tailwind CSS 4.
+
+Lo scorrimento fluido desktop usa Lenis; GSAP/ScrollTrigger gestisce i reveal e i movimenti leggeri. Il componente React Bits Magnet è applicato alle CTA. Le animazioni vengono ridotte o disattivate con `prefers-reduced-motion`; Lenis resta disattivato sui dispositivi touch.
 
 ## Avvio in locale
 
@@ -19,11 +21,25 @@ npm run build
 ## Dove aggiornare i contenuti
 
 - `src/data/content.ts`: nome, indirizzo, telefono, testi, CTA, orari e metadati. Sostituisci i segnaposto tra parentesi quadre con le informazioni confermate.
-- `src/data/menu.ts`: categorie e piatti del menu. Non sono indicati prezzi finché non vengono forniti.
+- `src/data/menu.ts`: categorie, foto di categoria e piatti del menu. Piatti e prezzi attuali sono esempi da sostituire con quelli confermati.
 - `src/data/gallery.ts`: percorsi, didascalie e testi alternativi delle immagini di apertura, presentazione e galleria.
 - `public/images/`: immagini del sito. Sostituisci i file e aggiorna i relativi percorsi in `src/data/gallery.ts`.
 
 Anche i campi SEO e i dati strutturati del ristorante usano le informazioni in `src/data/content.ts`.
+
+La home propone la prenotazione telefonica e una sezione recensioni da completare con contenuti reali. Nella pagina `/menu` mancano le foto per le categorie Dolci e Bevande.
+
+## Prova locale
+
+Avvia `npm run dev`, poi prova:
+
+- l'ingresso del titolo e della foto nell'hero e il parallax durante lo scorrimento;
+- la prenotazione telefonica nella home e il reveal delle categorie/piatti nella pagina menu;
+- l'header compatto e il menu mobile;
+- l'effetto Magnet delle CTA e lo zoom delle foto al passaggio del puntatore;
+- la galleria con mouse o tastiera (Tab, Escape e frecce nel lightbox).
+
+Per verificare le dimensioni, usa gli strumenti responsive del browser a 375, 768 e 1280 px. Prova anche `prefers-reduced-motion: reduce`: non devono rimanere parallax o transizioni di movimento.
 
 ## Pubblicazione
 

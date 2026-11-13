@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
 import { content } from "@/src/data/content";
+import { SmoothScroll } from "./components/smooth-scroll";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -34,7 +35,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="it" className={`${dmSans.variable} ${fraunces.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

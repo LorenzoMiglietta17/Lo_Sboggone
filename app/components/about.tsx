@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { content } from "@/src/data/content";
 import { photos } from "@/src/data/gallery";
+import { AboutMotion } from "./about-motion";
 import { Reveal } from "./reveal";
 
 export function About() {
@@ -8,7 +9,7 @@ export function About() {
 
   return (
     <section className="section-pad" id="trattoria" aria-labelledby="about-title">
-      <div className="section-wrap about-grid">
+      <AboutMotion>
         <Reveal>
           <div className="about-copy">
             <span className="eyebrow">{about.eyebrow}</span>
@@ -36,7 +37,7 @@ export function About() {
             <span className="image-note">{photos.about.caption}</span>
           </div>
         </Reveal>
-      </div>
+      </AboutMotion>
     </section>
   );
 }
