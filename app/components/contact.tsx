@@ -1,5 +1,6 @@
 import { content } from "@/src/data/content";
 import { Reveal } from "./reveal";
+import { Reviews } from "./reviews";
 import Magnet from "./ui/magnet";
 
 export function Contact() {
@@ -51,10 +52,7 @@ export function Contact() {
                 </dd>
               </div>
             </dl>
-            <section className="contact-reviews" aria-labelledby="reviews-title">
-              <h3 id="reviews-title">{content.contact.reviewsTitle}</h3>
-              <p>{content.contact.reviewsPlaceholder}</p>
-            </section>
+            <Reviews />
             <div className="contact-actions">
               <Magnet padding={56} magnetStrength={5} maxOffset={6} scale={1.015}>
                 <a

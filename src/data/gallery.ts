@@ -1,8 +1,6 @@
 export const photos = {
   hero: {
-    src: "/images/classica-cena-da-cicero.jpg",
-    alt: "Tagliere di salumi e antipasti servito con vino",
-    caption: "Una tavola imbandita",
+    src: "/images/hero-trattoria.webp",
   },
   about: {
     src: "/images/porcini-arrosto.jpg",

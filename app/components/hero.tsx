@@ -10,6 +10,15 @@ export function Hero() {
 
   return (
     <section className="hero" id="inizio" aria-labelledby="hero-title">
+      <Image
+        className="hero-background"
+        src={photos.hero.src}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        fetchPriority="high"
+      />
       <HeroMotion className="hero-content">
         <div className="hero-copy">
           <span className="eyebrow hero-eyebrow">{hero.eyebrow}</span>
@@ -26,17 +35,6 @@ export function Hero() {
             </Magnet>
           </div>
         </div>
-        <figure className="hero-photo hero-image">
-          <Image
-            src={photos.hero.src}
-            alt={photos.hero.alt}
-            fill
-            priority
-            sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 899px) min(100vw - 64px, 400px), (max-width: 1199px) 52vw, 512px"
-            fetchPriority="high"
-          />
-          <figcaption className="hero-photo-note">{photos.hero.caption}</figcaption>
-        </figure>
       </HeroMotion>
     </section>
   );
