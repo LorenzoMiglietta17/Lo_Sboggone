@@ -1,6 +1,6 @@
 import { content } from "@/src/data/content";
 import { Reveal } from "./reveal";
-import { Reviews } from "./reviews";
+import { GoogleReviews } from "./google-reviews";
 import Magnet from "./ui/magnet";
 
 export function Contact() {
@@ -52,7 +52,7 @@ export function Contact() {
                 </dd>
               </div>
             </dl>
-            <Reviews />
+            <GoogleReviews />
             <div className="contact-actions">
               <Magnet padding={56} magnetStrength={5} maxOffset={6} scale={1.015}>
                 <a

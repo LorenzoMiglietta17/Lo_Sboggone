@@ -13,6 +13,7 @@ export const content = {
     address: `${address.streetAddress}, ${address.postalCode} ${address.locality}`,
     phone: "06 323 2994",
     phoneLink: "+39063232994",
+    googleBusinessProfileUrl: "",
     mapsUrl:
       "https://www.google.com/maps/dir/?api=1&destination=Via+Podesti+8%2C+00196+Roma",
     mapEmbedUrl:
@@ -30,6 +31,8 @@ export const content = {
     primaryNavigation: "Navigazione principale",
     mobileNavigation: "Navigazione mobile",
     brandLabel: "Torna all'inizio",
+    openingNow: "Aperto ora",
+    closedNow: "Chiuso ora",
   },
   hero: {
     eyebrow: "Una tavola romana",
@@ -79,37 +82,35 @@ export const content = {
     hours: [
       {
         days: "Lunedì",
-        periods: [{ label: "Cena", time: "20:00–23:00" }],
+        weekdays: [1],
+        periods: [{ label: "Cena", time: "20:00–23:00", opensAt: "20:00", closesAt: "23:00" }],
       },
       {
         days: "Martedì–sabato",
+        weekdays: [2, 3, 4, 5, 6],
         periods: [
-          { label: "Pranzo", time: "13:00–15:00" },
-          { label: "Cena", time: "20:00–23:00" },
+          { label: "Pranzo", time: "13:00–15:00", opensAt: "13:00", closesAt: "15:00" },
+          { label: "Cena", time: "20:00–23:00", opensAt: "20:00", closesAt: "23:00" },
         ],
       },
       {
         days: "Domenica",
-        periods: [{ label: "", time: "Chiuso" }],
+        weekdays: [0],
+        periods: [{ label: "", time: "Chiuso", opensAt: null, closesAt: null }],
       },
     ],
     directions: "Indicazioni",
     mapTitle: "Mappa per Lo Sgobbone Da Pippo, Via Podesti 8, Roma",
     mapNote: "La mappa indica l’indirizzo fornito.",
-    reviewsTitle: "Le vostre recensioni",
-    reviewsIntro: "Le recensioni inserite vengono salvate solo nel browser che le invia.",
-    reviewNameLabel: "Il tuo nome",
-    reviewRatingLabel: "Valutazione",
-    reviewRatingPrompt: "Scegli una valutazione",
-    reviewTextLabel: "La tua recensione",
-    reviewSubmit: "Invia recensione",
-    reviewsEmpty: "Non ci sono ancora recensioni in questo browser. Scrivi la prima.",
-    reviewLoadError: "Non è stato possibile leggere le recensioni salvate in questo browser.",
-    reviewSaveError: "Non è stato possibile salvare la recensione. Riprova.",
-    reviewInvalid: "Inserisci il nome, una valutazione e una recensione valida.",
-    reviewSuccess: "La tua recensione è stata salvata.",
+    googleReviewsTitle: "Recensioni Google",
+    googleReviewsIntro:
+      "Il collegamento al profilo Google Business sarà aggiunto qui quando sarà pronto.",
+    googleReviewsLink: "Leggi le recensioni su Google",
   },
   footer: {
+    description: "La cucina romana, con il piacere di stare a tavola.",
+    contactTitle: "Contatti",
+    navigationTitle: "Esplora",
     creditPrefix: "Sito realizzato da",
     creditName: "Miglio Web",
     creditHref: "",

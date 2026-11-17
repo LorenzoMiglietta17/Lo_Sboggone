@@ -3,6 +3,7 @@ import Link from "next/link";
 import { content } from "@/src/data/content";
 import { photos } from "@/src/data/gallery";
 import { HeroMotion } from "./hero-motion";
+import { OpeningStatus } from "./opening-status";
 import Magnet from "./ui/magnet";
 
 export function Hero() {
@@ -33,6 +34,7 @@ export function Hero() {
                 <span aria-hidden="true">↗</span>
               </Link>
             </Magnet>
+            <OpeningStatus />
           </div>
         </div>
       </HeroMotion>
